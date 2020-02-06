@@ -13,6 +13,9 @@ function App() {
     guardarCitas([...citas, cita]);
   }
 
+  //Mensaje condicional
+const titulo = (citas.length === 0 ? 'No hay citas' : 'Administra tus citas');
+
   //Funcion que elimina una cita por su id
   const eliminarCita = id => {
     const nuevasCitas = citas.filter(cita => cita.id !== id)
@@ -31,7 +34,7 @@ function App() {
               />
             </div>
             <div className="one-half column">
-              <h2>Administra tus citas</h2>
+              <h2>{titulo}</h2>
               {citas.map(cita => (
                 <Cita 
                   key={cita.id}
